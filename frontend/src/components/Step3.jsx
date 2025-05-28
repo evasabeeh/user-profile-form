@@ -8,7 +8,7 @@ const Step3 = ({ formData, handleChange, next, prev }) => {
 
     // Fetch countries
     useEffect(() => {
-        axios.get('/api/user/countries')
+        axios.get('https://user-profile-form.onrender.com/api/user/countries')
             .then(res => {
                 const result = res.data;
                 if (Array.isArray(result)) {
@@ -29,7 +29,7 @@ const Step3 = ({ formData, handleChange, next, prev }) => {
     // Fetch states
     useEffect(() => {
         if (formData.country) {
-            axios.get(`/api/user/states/${formData.country}`)
+            axios.get(`https://user-profile-form.onrender.com/api/user/states/${formData.country}`)
                 .then(res => setStates(res.data))
                 .catch(() => setStates([]));
         } else {
@@ -44,7 +44,7 @@ const Step3 = ({ formData, handleChange, next, prev }) => {
     // Fetch cities
     useEffect(() => {
         if (formData.state && formData.country) {
-            axios.get(`/api/user/cities/${formData.state}`, {
+            axios.get(`https://user-profile-form.onrender.com/api/user/cities/${formData.state}`, {
                 params: { country: formData.country }
             })
                 .then(res => setCities(res.data))
