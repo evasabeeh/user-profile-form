@@ -3,7 +3,7 @@ import axios from 'axios';
 const Summary = ({ formData, prev }) => {
     const handleSubmit = async () => {
         try {
-            await axios.post('/api/user/submit', formData);
+            await axios.post('https://user-profile-form.onrender.com/api/user/submit', formData);
             alert('Submitted Successfully!');
         } catch (error) {
             alert('Submission failed: ' + (error.response?.data?.message || error.message));
