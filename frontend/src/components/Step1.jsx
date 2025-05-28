@@ -21,7 +21,7 @@ const Step1 = ({ formData, handleChange, next }) => {
         const username = formData.username;
         if (username.length >= 4 && username.length <= 20 && !/\s/.test(username)) {
             try {
-                const res = await axios.get(`/api/user/check-username?username=${username}`);
+                const res = await axios.get(`https://user-profile-form.onrender.com/api/user/check-username?username=${username}`);
                 
                 setUsernameAvailable(res.data.available);
                 if (!res.data.available) {
